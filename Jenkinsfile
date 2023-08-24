@@ -15,6 +15,10 @@ pipeline {
                   steps {
                         sh 'mvn -f maven-samples/single-module/pom.xml clean package'
                   }
+
+                  post{
+                        junit '**/target/*/TEST-*.xml'
+                  }
             }
 
       }
