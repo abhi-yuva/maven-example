@@ -1,26 +1,21 @@
 pipeline {
       agent any
+      tools{
+            maven 'maven'
+      }
+
       stages {
-            stage('Init') {
+            stage('Description') {
                   steps {
-                        echo 'Hi, this is Anshul from LevelUp360'
-                        echo 'We are Starting the Testing'
+                        echo 'This Project is to show how Maven execution steps from'
+                        echo 'Declarative Pipeline process'
                   }
             }
             stage('Build') {
                   steps {
-                        echo 'Building Sample Maven Project'
+                        sh 'mvn -f maven-samples/single-module/pom.xml clean package'
                   }
             }
-            stage('Deploy') {
-                  steps {
-                        echo "Deploying in Staging Area"
-                  }
-            }
-            stage('Deploy Production') {
-                  steps {
-                        echo "Deploying in Production Area"
-                  }
-            }
+
       }
 }
