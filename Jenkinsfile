@@ -23,6 +23,11 @@ pipeline {
                         }
                   }
             }
+      }
 
+      post{
+            always{
+                  emailext body: 'This is a Sample Test notification from Jenkins Job.', subject: 'Test Email Notification from Jenkins Job', to: 'devopsbyabhi@gmail.com'
+            }
       }
 }
