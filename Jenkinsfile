@@ -17,7 +17,9 @@ pipeline {
                   }
 
                   post{
-                        junit '**/target/*/TEST-*.xml'
+                        success{
+                              junit '**/target/*/TEST-*.xml'
+                        }
                   }
             }
 
